@@ -1,0 +1,40 @@
+<div>
+  <div class="form-group col-md-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="search by name"
+      [(ngModel)]="searchText"
+    />
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>phone No</th>
+        <th>NIC</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <thead>
+      <tr *ngFor="let cus of customers | customerFilter: searchText">
+        <td>{{ cus.id }}</td>
+        <td>{{ cus.name }}</td>
+        <td>{{ cus.email }}</td>
+        <td>{{ cus.phone }}</td>
+        <td>{{ cus.nic }}</td>
+        <td>
+          <button
+            class="btn btn-primary btn-sm btn-block"
+            (click)="goToDetails(cus.id)"
+          >
+            <i class="fas fa-user"></i>
+            Details
+          </button>
+        </td>
+      </tr>
+    </thead>
+  </table>
+</div>

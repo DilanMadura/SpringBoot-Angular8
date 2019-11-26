@@ -1,0 +1,82 @@
+<div>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <input type="hidden" name="customer.id" />
+    <div class="form-group">
+      <label for="" class="control-label">Full Name</label>
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        [(ngModel)]="customer.name"
+        #name="ngModel"
+        placeholder="name"
+        required
+      />
+      <span [hidden]="name.valid || name.untouched" class="text-danger"
+        >name is requird</span
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="">Email Address</label>
+      <input
+        class="form-control"
+        type="email"
+        name="email"
+        [(ngModel)]="customer.email"
+        #email="ngModel"
+        placeholder="email"
+        required
+        pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+      />
+      <span [hidden]="email.valid || email.untouched" class="text-danger"
+        >email is requird</span
+      >
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="">Phone Number</label>
+        <input
+          class="form-control"
+          type="text"
+          name="phone"
+          [(ngModel)]="customer.phone"
+          #phone="ngModel"
+          placeholder="phone"
+          required
+          minlength="10"
+          maxlength="10"
+          pattern="[0-9]+"
+        />
+        <span [hidden]="phone.valid || phone.untouched" class="text-danger"
+          >phone is requird</span
+        >
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="">NIC</label>
+        <input
+          class="form-control"
+          type="text"
+          name="nic"
+          [(ngModel)]="customer.nic"
+          #nic="ngModel"
+          placeholder="nic"
+          required
+          minlength="10"
+          maxlength="10"
+        />
+        <span [hidden]="nic.valid || nic.untouched" class="text-danger"
+          >nic is requird</span
+        >
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">
+      Submit
+    </button>
+    <button type="button" class="btn btn-danger" (click)="reset(myForm)">
+      Reset
+    </button>
+  </form>
+</div>

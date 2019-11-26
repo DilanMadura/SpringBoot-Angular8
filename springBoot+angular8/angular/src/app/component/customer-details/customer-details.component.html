@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-body" *ngIf="customer">
+    <div>
+      <div>
+        <label><b>Customer Name: </b></label> {{ customer.name }}
+      </div>
+      <div>
+        <label><b>ID: </b></label> {{ customer.id }}
+      </div>
+      <div>
+        <label><b>Email Address: </b></label> {{ customer.email }}
+      </div>
+      <div>
+        <label><b>Phone No: </b></label> {{ customer.phone }}
+      </div>
+      <div>
+        <label><b>NIc: </b></label> {{ customer.nic }}
+      </div>
+      <hr />
+      <div class="py-3">
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="employeeById(customer.id)"
+        >
+          Update
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="onDelete(customer.id)"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

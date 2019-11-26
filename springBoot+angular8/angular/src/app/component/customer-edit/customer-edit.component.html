@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-header">
+    <h3>
+      ID : {{ customer.id }}<span> Name: {{ customer.name }}</span>
+    </h3>
+  </div>
+  <div class="card-body">
+    <form #myForm="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <input type="hidden" name="customer.id" />
+      <div class="form-group">
+        <label for="">Full Name</label>
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          [(ngModel)]="customer.name"
+          #name="ngModel"
+          placeholder="name"
+          required
+        />
+        <span [hidden]="name.valid || name.untouched" class="text-danger"
+          >name is requird</span
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="">Email Address</label>
+        <input
+          class="form-control"
+          type="text"
+          name="email"
+          [(ngModel)]="customer.email"
+          #email="ngModel"
+          placeholder="email"
+          required
+        />
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="">Phone Number</label>
+          <input
+            class="form-control"
+            type="text"
+            name="phone"
+            [(ngModel)]="customer.phone"
+            #phone="ngModel"
+            placeholder="phone"
+            required
+          />
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="">NIC</label>
+          <input
+            class="form-control"
+            type="text"
+            name="nic"
+            [(ngModel)]="customer.nic"
+            #nic="ngModel"
+            placeholder="nic"
+            required
+          />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">SUBMIT</button>
+      <button type="button" class="btn btn-danger" (click)="cancel()">
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>
